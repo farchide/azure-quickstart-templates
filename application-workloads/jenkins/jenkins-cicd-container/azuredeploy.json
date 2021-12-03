@@ -302,6 +302,9 @@
         "servicePrincipalProfile": {
           "ClientId": "[parameters('spClientId')]",
           "Secret": "[parameters('spClientSecret')]"
+        },
+        "networkProfile": {
+          "networkPlugin": "azure"
         }
       }
     },
@@ -386,4 +389,3 @@
     }
   }
 }
-
