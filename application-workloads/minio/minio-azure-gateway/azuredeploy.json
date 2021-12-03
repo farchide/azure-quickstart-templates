@@ -10,7 +10,9 @@
       }
     },
     "virtualNetworkAddressPrefix": {
-      "defaultValue": ["10.0.0.0/16"],
+      "defaultValue": [
+        "10.0.0.0/16"
+      ],
       "type": "array",
       "metadata": {
         "description": "VNET address space."
@@ -347,7 +349,11 @@
             "osDiskSizeGB": 80,
             "mode": "System",
             "type": "VirtualMachineScaleSets",
-            "availabilityZones": ["1", "2", "3"],
+            "availabilityZones": [
+              "1",
+              "2",
+              "3"
+            ],
             "vnetSubnetID": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'default')]"
           },
           {
@@ -363,7 +369,11 @@
             "enableAutoScaling": true,
             "minCount": "[parameters('mincount')]",
             "maxCount": "[parameters('maxcount')]",
-            "availabilityZones": ["1", "2", "3"],
+            "availabilityZones": [
+              "1",
+              "2",
+              "3"
+            ],
             "vnetSubnetID": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'default')]"
           }
         ],
@@ -375,6 +385,11 @@
                 "keyData": "[parameters('linuxSSHKey')]"
               }
             ]
+          }
+        },
+        "addonProfiles": {
+          "omsagent": {
+            "enabled": true
           }
         }
       }
