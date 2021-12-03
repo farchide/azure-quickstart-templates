@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-         "clusterName": {
+        "clusterName": {
             "type": "string",
             "metadata": {
                 "description": "The name of the Managed Cluster resource."
@@ -88,8 +88,8 @@
         }
     },
     "variables": {
-		 "dnsPrefix": "[parameters('clusterName')]"
-	},
+        "dnsPrefix": "[parameters('clusterName')]"
+    },
     "resources": [
         {
             "type": "Microsoft.ContainerService/managedClusters",
@@ -135,7 +135,7 @@
                 "nodeResourceGroup": "[concat('MC_', resourceGroup().name,'_', parameters('clusterName'), '_',parameters('location'))]",
                 "enableRBAC": true,
                 "networkProfile": {
-                    "networkPlugin": "kubenet",
+                    "networkPlugin": "azure",
                     "loadBalancerSku": "Basic",
                     "podCidr": "[parameters('podCidr')]",
                     "serviceCidr": "[parameters('serviceCidr')]",
@@ -165,4 +165,3 @@
         }
     ]
 }
-
